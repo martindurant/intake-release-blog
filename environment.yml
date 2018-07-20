@@ -1,4 +1,4 @@
-name: intaker  # for Bayesian analysis
+name: intaker
 channels:
 - intake
 - pyviz
@@ -6,6 +6,8 @@ channels:
 - conda-forge
 dependencies:
 - python=3.6
+- ruamel_yaml=0.15
+- intake>=0.1.5
 - us_crime
 - notebook
 - ipykernel
