@@ -1,0 +1,12 @@
+name: intaker  # for Bayesian analysis
+channels:
+- intake
+- pyviz
+- defaults
+- conda-forge
+dependencies:
+- python=3.6
+- us_crime
+- notebook
+- ipykernel
+- hvplot
