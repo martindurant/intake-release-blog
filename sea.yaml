@@ -9,8 +9,6 @@ sources:
           basic:
             kind: line
             x: Time
-            y: 
-            - Arctic
-            - Antarctica
+            y: [Arctic, Antarctica]
             width: 700
             height: 500
