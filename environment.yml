@@ -12,3 +12,4 @@ dependencies:
 - notebook
 - ipykernel
 - hvplot
+- pygithub

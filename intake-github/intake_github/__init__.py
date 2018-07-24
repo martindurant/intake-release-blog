@@ -15,8 +15,6 @@ class GithubIssuesSource(base.DataSource):
         super(GithubIssuesSource, self).__init__(metadata=metadata)
 
     def _get_schema(self):
-        # We're hard coding the schema here, but it could be dynamically deduced from the data
-        # This is how you make an empty Pandas dataframe
         self._dtypes = {'number': 'int', 
             'title': 'str',
             'user': 'str',
