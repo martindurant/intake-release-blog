@@ -21,8 +21,10 @@ Intake has been designed as a simple layer over other Python libraries to
 - provide a consistent API, so that you can investigate and load all of your data with
 the same commands, without knowing the details of the backend library
 - a simple cataloging system using YAML syntax, enabling, for every data-set,
-a description of which plugin is to load it, with what arguments, and associating
-arbitrary metadata with the data
+a description of 
+  - which plugin is to load it
+  - arguments to pass
+  - arbitrary metadata to associate with the data
 - transparent access to remote catalogs and data, for most formats
 - a minimalist plugin system, so that new loaders, remote containers, and many other
 components can be contributed to Intake with a minimum of fuss.
@@ -123,13 +125,13 @@ The Intake codebase is intended to be approachable and very pluggable. It should
 be easy to to create new data loader plugins (see the [CSV](https://github.com/ContinuumIO/intake/blob/master/intake/source/csv.py#L7)
 and [textfiles](https://github.com/ContinuumIO/intake/blob/master/intake/source/textfiles.py#L4)
 prototypes classes). Even writing new auth mechanisms (beyond the [very simplistic](https://github.com/ContinuumIO/intake/blob/master/intake/auth/secret.py#L8)
-one) or replacing the Intake server with a whole new implementation are very
+one) or replacing the Intake server with a whole new implementation is very
 doable. These do not need to exist within the Intake repo, and creating complementary
 packages is very much encouraged. We hope to cover not just the main data formats
 already loadable by the likes of Pandas, but to catalog and access *all* data
 such as fitted machine learning models, REST APIs and video formats. 
 
-Distributing such code can be done along the usual channels, and an entry in a
+Such code can be distributed along the usual channels, and an entry in a
 catalog can specify which module it requires to be installed, in order to be able to
 load. Indeed, if distributing catalogs, then the appropriate dependency on the
 plugin package can be declared.
@@ -148,3 +150,9 @@ Intake provides a very simple yet useful division between the users of data, and
 the maintainers of data source catalogs. Intake has approachable code and is extensible
 in many places, and so hopefully can progress to become an all-inclusive data ecosystem
 for numerical python.
+
+
+--
+
+This work was supported by Anaconda. Please note that the effort is still in the early
+stages, so expect some rough edges!
