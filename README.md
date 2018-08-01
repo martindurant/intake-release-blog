@@ -115,7 +115,7 @@ or for getting information required for data access from the user's environment
 
 The linked notebook shows an example workflow for a data engineer.
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/martindurant/intake-release-blog/master?filepath=data-engineer.ipynb)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/martindurant/intake-release-blog/master?filepath=data_engineer.ipynb)
 
 ### Developer
 
