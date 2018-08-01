@@ -13,11 +13,11 @@ Defining and loading data-sets costs time and effort.
 The data scientist needs to know what data are available,
 and the characteristics of each data-set, before going to the effort of loading
 and beginning to analyse some specific data-set. Furthermore, they might need
-to learn the API of some python package specific to the target format. The code
+to learn the API of some Python package specific to the target format. The code
 to do such data loading often makes up the first block of every notebook or script,
 propagated by copy&paste.
 
-Intake has been designed as a simple layer over other python libraries to
+Intake has been designed as a simple layer over other Python libraries to
 - provide a consistent API, so that you can investigate and load all of your data with
 the same commands, without knowing the details of the backend library
 - a simple cataloging system using YAML syntax, enabling, for every data-set,
@@ -54,7 +54,7 @@ Several additional packages are available with plugins for various formats. See 
 Intake provides an easy way to find your data, locally, in a cloud service, or
 on an Intake server.
 
-```python
+```Python
 import intake
 intake.cat         # set of installed data-sets
 cat = intake.open_catalog('directory/catalog.yaml')      # some local catalog file
@@ -68,12 +68,18 @@ interrogate the entry (e.g., read the text description), or to directly load the
 In general, a catalog can contain any number of entries, and can also reference
 other catalogs, local or remote, in a hierarchical manner.
 
-```python
+```Python
 list(cat)                 # set of entries
 cat.us_crime.describe()   # basic description of an entry
+cat.us_crime.plot()       # quick-look plotting
 df = cat.us_crime.read()  # get all of the data in one shot
 ```
 
+The output of `read()` will be one of a small number of python containers appropriate
+to the data, in this case a Pandas data-frame. The two other built-in containers are
+numpy n-dimensional arrays and list-of objects. Each of these also has an out-of-core,
+parallelised version available with the `.to_dask()` method. 
+ 
 The linked notebook shows an example workflow for a data scientist.
  
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/martindurant/intake-release-blog/master?filepath=data_scientist.ipynb)
@@ -128,6 +134,9 @@ catalog can specify which module it requires to be installed, in order to be abl
 load. Indeed, if distributing catalogs, then the appropriate dependency on the
 plugin package can be declared.
 
+Some suggestions of [plugin ideas](https://github.com/ContinuumIO/intake/issues/58) are
+listed in a GitHub issue - please discuss and add your own!
+
 The linked notebook shows an example workflow for a developer.
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/martindurant/intake-release-blog/master?filepath=dev.ipynb)
@@ -135,3 +144,7 @@ The linked notebook shows an example workflow for a developer.
 
 ## Summary
 
+Intake provides a very simple yet useful division between the users of data, and
+the maintainers of data source catalogs. Intake has approachable code and is extensible
+in many places, and so hopefully can progress to become an all-inclusive data ecosystem
+for numerical python.
