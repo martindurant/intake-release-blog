@@ -13,3 +13,5 @@ dependencies:
 - ipykernel
 - hvplot
 - pygithub
+- airline_flights
+- ipywidgets
